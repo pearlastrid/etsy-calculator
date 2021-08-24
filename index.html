@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<!--Etsy Profit Calculator-->
+<!--Inputs: 
+    * item listing price
+    * shipping charge
+    * gift wrapping charge
+    * number of items sold
+    * Etsy ads expenses
+    * offsite ads expenses
+    * item cost
+    * shipping cost
+    * payment processing method-->
+
+<!--Outputs:
+    * gross profit
+    * total expenses
+    * profit margin-->
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Pearl Lin">
+        <title>Etsy Profit Calculator</title>
+        <meta charset="utf-8"/>
+        <link href="style.css" rel="stylesheet">
+        <script async src="calculate.js"></script>
+    </head>
+    <body>
+        <div class="banner">
+            <h1 class="title">Etsy Profit Calculator</h1>
+        </div>
+            <h4 class="author">By: Pearl</h4>
+        <!--Basic introduction-->
+        <div class="introduction">
+            <p>Fill in the following fields and hit calculate! You will see your total fees along with your gross profit, listed 
+                down below. All fields are required.
+            </p>
+        </div>
+        <hr>
+        <!--Request inputs-->
+        <div class="form">
+            <form>
+                <div class="row">
+                    <div class="listingprice left">
+                        <label for="listingprice"><h2>Listing Price</h2></label>
+                        <label for="listingprice"><p>The price you entered for the listing</p></label>
+                        <input type="number" required id="listingPrice" name="listingprice">
+                    </div>
+                    <div class="shippingcharge right">
+                        <label for="shippingcharge"><h2>Shipping Charge</h2></label>
+                        <label for="shippingcharge"><p>How much are you charging for shipping?</p></label>
+                        <input type="number" required id="shippingCharge" name="shippingcharge">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="giftwrapping left">
+                        <label for="giftwrapping"><h2>Gift Wrapping Charge</h2></label>
+                        <label for="giftwrapping"><p>How much are you charging for gift wrapping?</p></label>
+                        <input type="number" required id="giftWrapping" name="giftwrapping">
+                    </div>
+                    <div class="numitems right">
+                        <label for="numitems"><h2>Number of Items Sold</h2></label>
+                        <label for="numitems"><p>Quantity of the item purchased</p></label>
+                        <input type="number" required id="numItems" name="numitems">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="etsyads left">
+                        <label for="etsyads"><h2>Etsy Ads</h2></label>
+                        <label for="etsyads"><p>How much did you spend on Etsy Ads for this sale?</p></label>
+                        <input type="number" required id="etsyAds" name="etsyads">
+                    </div>
+                    <div class="offsiteads right">
+                        <label for="offsiteads"><h2>Offsite Ads</h2></label>
+                        <label for="offsiteads"><p>Were you charged with Offsite Ads? Choose a percentage:</p></label>
+                        <select required id="offsiteAds" name="offsiteads">
+                            <option value="None">None</option>
+                            <option value="12%">12%</option>
+                            <option value="15%">15%</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="itemcost left">
+                        <label for="itemcost"><h2>Item Cost</h2></label>
+                        <label for="itemcost"><p>How much did it cost you to make this item?</p></label>
+                        <input type="number" required id="itemCost" name="itemcost">
+                    </div>
+                    <div class="shippingcost right">
+                        <label for="shippingcost"><h2>Shipping Cost</h2></label>
+                        <label for="shippingcost"><p>How much did it cost you to ship this item?</p></label>
+                        <input type="number" required id="shippingCost" name="shippingcost">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="paymentmethod left">
+                        <label for="paymentmethod"><h2>Payment Processing Method</h2></label>
+                        <label for="paymentmethod"><p>What payment processing method did the buyer select?</p></label>
+                        <select required id="paymentMethod" name="paymentmethod">
+                            <option value="Etsy Payments">Etsy Payments</option>
+                            <option value="Paypal">Paypal</option>
+                        </select>
+                    </div>
+                    <div class="buyerstate right">
+                        <label for="buyerstate"><h2>Buyer State</h2></label>
+                        <label for="buyerstate"><p>What state is your buyer purchasing from?</p></label>
+                        <select required id="buyerState" name="buyerstate">
+                            <option value="9.22">Alabama</option>
+                            <option value="1.76">Alaska</option>
+                            <option value="8.40">Arizona</option>
+                            <option value="9.51">Arkansas</option>
+                            <option value="8.68">California</option>
+                            <option value="7.72">Colorado</option>
+                            <option value="6.35">Connecticut</option>
+                            <option value="0.00">Delaware</option>
+                            <option value="6.00">DC</option>
+                            <option value="7.08">Florida</option>
+                            <option value="7.32">Georgia</option>
+                            <option value="4.44">Hawaii</option>
+                            <option value="6.03">Idaho</option>
+                            <option value="8.82">Illinois</option>
+                            <option value="7.00">Indiana</option>
+                            <option value="6.94">Iowa</option>
+                            <option value="8.69">Kansas</option>
+                            <option value="6.00">Kentucky</option>
+                            <option value="9.52">Louisiana</option>
+                            <option value="5.50">Maine</option>
+                            <option value="6.00">Maryland</option>
+                            <option value="6.25">Massachusetts</option>
+                            <option value="6.00">Michigan</option>
+                            <option value="7.46">Minnesota</option>
+                            <option value="7.07">Mississippi</option>
+                            <option value="8.25">Missouri</option>
+                            <option value="0.00">Montana</option>
+                            <option value="6.94">Nebraska</option>
+                            <option value="8.23">Nevada</option>
+                            <option value="0.00">New Hampshire</option>
+                            <option value="6.60">New Jersey</option>
+                            <option value="7.83">New Mexico</option>
+                            <option value="8.52">New York</option>
+                            <option value="6.98">North Carolina</option>
+                            <option value="6.96">North Dakota</option>
+                            <option value="7.23">Ohio</option>
+                            <option value="8.95">Oklahoma</option>
+                            <option value="0.00">Oregon</option>
+                            <option value="6.34">Pennsylvania</option>
+                            <option value="7.00">Rhode Island</option>
+                            <option value="7.46">South Carolina</option>
+                            <option value="6.40">South Dakota</option>
+                            <option value="9.55">Tennessee</option>
+                            <option value="8.19">Texas</option>
+                            <option value="7.19">Utah</option>
+                            <option value="6.24">Vermont</option>
+                            <option value="5.73">Virginia</option>
+                            <option value="9.23">Washington</option>
+                            <option value="6.50">West Virginia</option>
+                            <option value="5.43">Wisconsin</option>
+                            <option value="5.33">Wyoming</option>
+                        </select>
+                    </div>
+                
+                </div>
+                <input id="button" type="button" value="Calculate" onclick="calculateFees()">
+                
+            </form>
+        </div>
+        <hr>
+        <!--Final Summary-->
+        <div class="results">
+            <h2 id="grossProfit">Gross Profit: </h2>
+            <h2 id="totalFees">Total Expenses: </h2>
+            <h2 id="profitMargin">Profit Margin: </h2>
+        </div>
+    </body>
+</html>
