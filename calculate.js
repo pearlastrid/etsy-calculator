@@ -50,7 +50,7 @@ function calculateFees() {
     fair profit margin for Etsy: (15%, 30%]
     poor profit margin for Etsy: 15% or less
     color code accordingly*/
-    document.getElementById('profitMargin').innerHTML = `Profit Margin: ${profitMargin}`;
+    document.getElementById('profitMargin').innerHTML = `Profit Margin: ${profitMargin}%`;
     if (profitMargin > 45) {
         document.getElementById('profitMargin').style.color = '#00802b';
     }
