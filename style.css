@@ -155,4 +155,6 @@ p {
 }
 #grossProfit, #totalFees, #profitMargin{
     margin-bottom: 6vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
 }
