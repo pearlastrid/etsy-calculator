@@ -1,6 +1,6 @@
 function calculateFees() {
     //Add hard values from the HTML form together
-    let totalSale = parseFloat(document.getElementById('listingPrice').value) + 
+    let totalSale = parseFloat(document.getElementById('listingPrice').value) * parseFloat(document.getElementById('numItems').value) + 
                     parseFloat(document.getElementById('shippingCharge').value) + 
                     parseFloat(document.getElementById('giftWrapping').value);
     let expenses = parseFloat(document.getElementById('numItems').value) * 0.20 + 
@@ -37,7 +37,7 @@ function calculateFees() {
     //what is counted as revenue is the listing price, according to Etsy
     /* listing price on Etsy must be between [0.20, 50,000], so no divide by
     zero error will occur. (assuming that the user entered the listing price correctly) */
-    let profitMargin = profit / parseFloat(document.getElementById('listingPrice').value) * 100;
+    let profitMargin = profit / (parseFloat(document.getElementById('listingPrice').value) * parseFloat(document.getElementById('numItems').value)) * 100;
     //round all final results to 2 decimal places
     profit = profit.toFixed(2);
     expenses = expenses.toFixed(2);
